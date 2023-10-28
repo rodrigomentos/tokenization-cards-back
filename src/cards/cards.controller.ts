@@ -31,7 +31,7 @@ export class CardsController {
     const cardEnabled =  await this.redisService.getValue(card.id)
     
     if(!cardEnabled){
-      throw new HttpException('El token ha expirado tras 15 minutos de ser creados.', HttpStatus.NOT_FOUND);
+      throw new HttpException('El token ha expirado tras 15 minutos de ser creado.', HttpStatus.NOT_FOUND);
     }
 
     return card;

@@ -1,0 +1,26 @@
+service: tokenizationcards
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  architecture: arm64
+  stage: production
+  region: us-west-2
+  memorySize: 2048
+  logRetentionInDays: 1
+  timeout: 15
+  
+
+functions:
+  api:
+    handler: dist/lambda.handler
+    events:
+      - httpApi:
+          method: any
+          path: /{proxy+}
+
+plugins:
+  - serverless-jetpack
+  - serverless-offline

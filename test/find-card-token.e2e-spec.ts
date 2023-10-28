@@ -45,7 +45,7 @@ describe('CardController findBytoken (e2e)', () => {
         .set('Authorization', `Bearer ${accessToken}`)
         .expect(404)
       
-      expect(response.body.message).toContain('El token ha expirado tras 15 minutos de ser creados.');
+      expect(response.body.message).toContain('El token ha expirado tras 15 minutos de ser creado.');
   });
 
 })
